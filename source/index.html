@@ -1,0 +1,180 @@
+<html>
+<title></title>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="Packages/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="Packages/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <script src="JavaScript/fillEditFields.js"></script>
+</head>
+
+<body>
+
+    <!-- Top bar -->
+    <header>
+        <nav class="navbar navbar-default  bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand">Library Database Manager</a>
+                <a href="http://google.com">
+                    <button href="http://google.com" type="button" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-github" viewBox="0 0 16 16">
+                            ::before
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+                            </path>
+                        </svg>
+                        GitHub
+                    </button>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Add book button -->
+        <div class="container-fluid h-100">
+            <div class="row">
+                <div class="col-lg-1 mx-5 my-2">
+                    <a>
+                        <button type="button" id="abcd" class="btn btn-primary" data-toggle="modal"
+                            data-target="#addModal">Add
+                            Book</button>
+                    </a>
+                </div>
+            </div>
+            <!-- Table  -->
+            <div class="row">
+                <div class="col mx-5 my-1">
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+                        <table class="table table-bordered table-striped mx-0" alt="Max-width 100%">
+
+                            <thread>
+                                <tr>
+                                    <th scope="col">Book ID</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Author</th>
+                                    <th scope="col">ISBN</th>
+                                    <th scope="col">Publisher</th>
+                                    <th scope="col">Last Checked Out</th>
+                                </tr>
+                            </thread>
+                            <tbody id="tableBody"></tbody>
+                        </table>
+                        <script src="JavaScript/loadData.js"></script>
+                        <script src="JavaScript/addBookModal.js"></script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add book modal -->
+        <div id="addModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Book</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Fields for adding a book -->
+                        <form>
+                            <div class="container-fluid h-100">
+                                <div class="row">
+                                    <div class="col mx-1 my-1">
+                                        <label for="bookID">Book ID:</label><br>
+                                        <input type="text" id="bookID" name="bookID">
+                                    </div>
+                                    <div class="col mx-1 my-1">
+                                        <label for="bookISBN">ISBN:</label><br>
+                                        <input type="text" id="bookISBN" name="bookISBN">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col mx-1 my-1">
+                                        <label for="bookTitle">Title:</label><br>
+                                        <input type="text" id="bookTitle" name="bookTitle">
+                                    </div>
+                                    <div class="col mx-1 my-1">
+                                        <label for="bookAuthor">Author:</label><br>
+                                        <input type="text" id="bookAuthor" name="bookAuthor">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col mx-1 my-1">
+                                        <label for="bookPublisher">Publisher:</label><br>
+                                        <input type="text" id="bookPublisher" name="bookPublisher">
+                                    </div>
+                                    <div class="col mx-1 my-1">
+                                        <label for="bookLCO">Last Checked Out:</label><br>
+                                        <input type="text" id="bookLCO" name="bookLCO">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- edit modal -->
+        <div id="editModal" class="modal fade" role="dialog">
+            <script src="JavaScript/editBookModal.js"></script>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit Book</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Fields for adding a book -->
+                        <form>
+                            <div class="container-fluid h-100">
+                                <div class="row">
+                                    <div class="col mx-1 my-1">
+                                        <label for="editBookID">Book ID:</label><br>
+                                        <input type="text" id="editBookID" name="editBookID">
+                                        <!-- <div id="spaceID"></div> -->
+                                    </div>
+                                    <div class="col mx-1 my-1">
+                                        <label for="editBookISBN">ISBN:</label><br>
+                                        <input type="text" id="editBookISBN" name="editBookISBN">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col mx-1 my-1">
+                                        <label for="editBookTitle">Title:</label><br>
+                                        <input type="text" id="editBookTitle" name="editBookTitle">
+                                    </div>
+                                    <div class="col mx-1 my-1">
+                                        <label for="editBookAuthor">Author:</label><br>
+                                        <input type="text" id="editBookAuthor" name="editBookAuthor">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col mx-1 my-1">
+                                        <label for="editBookPublisher">Publisher:</label><br>
+                                        <input type="text" id="editBookPublisher" name="editBookPublisher">
+                                    </div>
+                                    <div class="col mx-1 my-1">
+                                        <label for="editBookLCO">Last Checked Out:</label><br>
+                                        <input type="text" id="editBookLCO" name="editBookLCO">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
